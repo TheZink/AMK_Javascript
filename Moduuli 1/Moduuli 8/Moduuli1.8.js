@@ -1,16 +1,11 @@
 'use strict';
 
-const answer = confirm("Haluatko, että lasken pinta-alan?")
+const year_1 = prompt("Anna ensimmäinen vuosiluku: ");
+const year_2 = prompt("Anna toinen vuosiluku: ")
 
-if (answer) {
-    let numbers_1 = prompt("Anna pituus: ");
-    let numbers_2 = prompt("Anna leveys: ")
-    if (numbers_1 >= 0 && numbers_2 >= 0) {
-        let calc = numbers_1 * numbers_2
-        document.querySelector('#pinta').innerHTML = `Syöttämäsi lukujen pinta-ala on: ${calc}`;
-    } else {
-        document.querySelector('#pinta').innerHTML = `Syötit negatiivisen luvun :(`;
+for (let i = year_1; i < year_2; i++) {
+    if (i % 4 == 0 && (i % 100 != 0 || i % 400 == 0)) {
+        const karkaus = `<li>${i}</li>`;
+        document.querySelector('#karkaus').innerHTML += karkaus;
     }
-} else {
-    document.querySelector('#pinta').innerHTML = `Peruutit toiminnon. Pinta-alaa ei laskettu`;
 }
